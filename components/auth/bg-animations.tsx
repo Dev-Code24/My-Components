@@ -27,8 +27,8 @@ const BGAnimation = () => {
     const stars: Star[] = [];
     let speed = 10;
 
-    let mouseX = canvas.width / 4;
-    let mouseY = canvas.height / 5;
+    const mouseX = canvas.width / 4;
+    const mouseY = canvas.height / 5;
 
     function createStar(): Star {
       let x, y;
@@ -64,7 +64,7 @@ const BGAnimation = () => {
     function updateStars(): void {
       context!.clearRect(0, 0, canvas!.width, canvas!.height);
 
-      for (let star of stars) {
+      for (const star of stars) {
         star.z -= speed;
 
         if (star.z <= 0) {

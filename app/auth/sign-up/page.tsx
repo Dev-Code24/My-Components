@@ -46,7 +46,7 @@ const SignUp = () => {
     },
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: UserFormValues) => {
     console.log(data);
   };
   return (
