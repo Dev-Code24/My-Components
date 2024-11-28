@@ -54,16 +54,19 @@ const SignUp = () => {
       <div className="absolute top-0 left-0 z-[-1]">
         <BGAnimation />
       </div>
-      <div className="w-[50%] h-full flex justify-center items-center flex-col">
+      <div className="hidden md:w-[50%] w-full h-full lg:flex lg:justify-center lg:items-center lg:flex-col">
         <div>
           <div className={`${racings_sans.className} text-6xl`}>Welcome to,</div>
           <div className={`${racings_sans.className} text-6xl`}>My Components</div>
         </div>
       </div>
-      <div className="w-[50%] h-full flex justify-center items-center p-6">
+      <div className="lg:w-[50%] w-full h-full flex justify-center items-center lg:p-6 p-4">
         <div className="container__form w-full h-full bg-white rounded-xl text-slate-800 p-6 flex items-center justify-center">
-          <div className="my-auto h-[30rem] w-[26rem]">
-            <div className="text-4xl py-4">Create an account</div>
+          <div className="lg:my-auto max:h-[30rem] max:w-[26rem]">
+            <div className="lg:hidden flex items-center">
+              <div className={`${racings_sans.className} text-[1.35rem] md:text-5xl`}>Welcome to, My Components</div>
+            </div>
+            <div className="lg:text-3xl text-xl py-4">Create an account</div>
             <div>
               Already have an account ?{" "}
               <Link href="/sign-in" className="underline text-blue-800">
@@ -74,6 +77,7 @@ const SignUp = () => {
               <div className="flex flex-wrap my-4 gap-2">
                 <TextInput
                   label="First name"
+                  name="firstName"
                   style={{
                     fontSize: "1rem",
                     lineHeight: "1.75rem",
@@ -82,6 +86,7 @@ const SignUp = () => {
                 />
                 <TextInput
                   label="Middle name"
+                  name="middleName"
                   style={{
                     fontSize: "1rem",
                     lineHeight: "1.75rem",
@@ -90,16 +95,18 @@ const SignUp = () => {
                 />
                 <TextInput
                   label="Last name"
+                  name="lastName"
                   style={{
                     fontSize: "1rem",
                     lineHeight: "1.75rem",
-                    width: "calc(100% )",
+                    width: "calc(100%)",
                   }}
                 />
               </div>
               <div className="my-4 flex items-center justify-center flex-col gap-2">
                 <TextInput
                   label="Email"
+                  name="email"
                   style={{
                     fontSize: "1rem",
                     lineHeight: "1.75rem",
@@ -109,7 +116,8 @@ const SignUp = () => {
                 <div className="flex relative w-full">
                   <TextInput
                     label="Password"
-                    type="password"
+                    name="password"
+                    type={!showPass ? "password" : "text"}
                     style={{
                       fontSize: "1rem",
                       lineHeight: "1.75rem",
