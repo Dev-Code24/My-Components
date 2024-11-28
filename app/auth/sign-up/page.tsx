@@ -69,7 +69,7 @@ const SignUp = () => {
             <div className="lg:text-3xl text-xl py-4">Create an account</div>
             <div>
               Already have an account ?{" "}
-              <Link href="/sign-in" className="underline text-blue-800">
+              <Link href="/auth/sign-in" className="underline text-blue-800">
                 Sign in
               </Link>
             </div>
@@ -141,7 +141,7 @@ const SignUp = () => {
                     </div>
                   </CheckboxInput>
                 </div>
-                <Button variant="contained">Submit</Button>
+                <Button variant="contained">Sign up</Button>
               </div>
             </Form>
           </div>
