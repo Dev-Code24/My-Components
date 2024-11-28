@@ -1,5 +1,4 @@
 import React from "react";
-import cssmodule from "./CheckboxInput.module.css";
 
 interface CheckboxInputProps {
   children: React.ReactNode;
