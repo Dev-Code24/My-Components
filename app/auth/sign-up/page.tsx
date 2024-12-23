@@ -12,6 +12,7 @@ import TextInput from "@/components/ui/inputs/TextInput";
 import Button from "@/components/ui/button/Button";
 import CheckboxInput from "@/components/ui/inputs/checkBoxInput/CheckboxInput";
 import Form from "@/components/ui/forms/Form";
+import axios from "axios";
 
 const racings_sans = Racing_Sans_One({
   variable: "--font-racings-sans",
@@ -46,9 +47,29 @@ const SignUp = () => {
     },
   });
 
-  const onSubmit = (data: UserFormValues) => {
-    console.log(data);
+  const onSubmit = async (data: UserFormValues) => {
+    try {
+      const fetchUrl = `/api/v1/auth/sign-up`;
+
+      const requestData = { ...data };
+
+      // Remove middleName if it's undefined
+      if (!requestData.middleName) {
+        delete requestData.middleName;
+      }
+
+      // Make the API request
+      const response = await axios.post<ApiResponse>(fetchUrl, requestData);
+
+      if (response.status === 200) {
+        alert("Sign-up successful!");
+      }
+    } catch (error: any) {
+      console.error("Sign-up error:", error);
+      alert(error.response?.data?.message || "An unexpected error occurred.");
+    }
   };
+
   return (
     <div className="relative flex justify-between items-center h-screen w-full">
       <div className="absolute top-0 left-0 z-[-1]">
